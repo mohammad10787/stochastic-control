@@ -1,0 +1,18 @@
+---
+title: Assignment 6 (solution)
+---
+
+1. We start by the right side of the inequality. We want to show that 
+  $$V_{k+1} + \bar{\delta}_{k+1} \leq V_k + \bar{\delta}_k.$$
+  We know from the value iteration algorithm proof that 
+  $$B V_k - V_k \leq (1 - \beta) \bar{\delta}_k \Rightarrow V_k + \bar{\delta}_k \geq B V_k + \beta \bar{\delta}_k.$$
+  Or,
+  $$B V_k - V_k \leq (1 - \beta) \bar{\delta}_k \Rightarrow V_k + \bar{\delta}_k \geq V_{k+1} + \beta \bar{\delta}_k. \quad \text{(*)}$$
+  On the other hand,
+  $$\bar{\delta}_{k+1} = \frac{\beta}{1-\beta} \max_x \{ V_{k+1}(x) - V_k(x) \} 
+  = \frac{\beta}{1-\beta} \| V_{k+1} - V_k \| = \| BV_k - BV_{k-1} \|
+  \leq \frac{\beta^2}{1-\beta} \| V_{k} - V_{k-1} \| = \beta \bar{\delta}_k.
+  \quad \text{(**)}$$
+  Hence, from (*) and (**) we can show that 
+  $$V_{k+1} + \bar{\delta}_{k+1} \leq V_{k+1} + \beta \bar{\delta}_k \leq V_k + \bar{\delta}_k.$$
+  We can show the other inequality in the similar way.
