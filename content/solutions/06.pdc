@@ -18,7 +18,8 @@ title: Assignment 6 (solution)
   We can show the other inequality in the similar way.
   
   
-2. We know that 
+3. 
+Prop. 6 We know that 
 $$ V + m \geq \mathcal{B} = \mathcal{B}_g V.$$
 By the monotonicity and discounting properties we have the following
 $$\mathcal{B}_gV + \beta m \geq \mathcal{B}_g^2 V$$
