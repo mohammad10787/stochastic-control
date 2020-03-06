@@ -1,0 +1,43 @@
+---
+title: Assignment 6 (solution)
+---
+
+1. We start by the right side of the inequality. We want to show that 
+  $$V_{k+1} + \bar{\delta}_{k+1} \leq V_k + \bar{\delta}_k.$$
+  We know from the value iteration algorithm proof that 
+  $$B V_k - V_k \leq (1 - \beta) \bar{\delta}_k \Rightarrow V_k + \bar{\delta}_k \geq B V_k + \beta \bar{\delta}_k.$$
+  Or,
+  $$B V_k - V_k \leq (1 - \beta) \bar{\delta}_k \Rightarrow V_k + \bar{\delta}_k \geq V_{k+1} + \beta \bar{\delta}_k. \quad \text{(*)}$$
+  On the other hand,
+  $$\bar{\delta}_{k+1} = \frac{\beta}{1-\beta} \max_x \{ V_{k+1}(x) - V_k(x) \} 
+  = \frac{\beta}{1-\beta} \| V_{k+1} - V_k \| = \| BV_k - BV_{k-1} \|
+  \leq \frac{\beta^2}{1-\beta} \| V_{k} - V_{k-1} \| = \beta \bar{\delta}_k.
+  \quad \text{(**)}$$
+  Hence, from (*) and (**) we can show that 
+  $$V_{k+1} + \bar{\delta}_{k+1} \leq V_{k+1} + \beta \bar{\delta}_k \leq V_k + \bar{\delta}_k.$$
+  We can show the other inequality in the similar way.
+  
+  
+2. We know that 
+$$ V + m \geq \mathcal{B} = \mathcal{B}_g V.$$
+By the monotonicity and discounting properties we have the following
+$$\mathcal{B}_gV + \beta m \geq \mathcal{B}_g^2 V$$
+$$\mathcal{B}_g^2V + \beta^2 m \geq \mathcal{B}_g^3 V$$
+$$\mathcal{B}_g^3V + \beta^3 m \geq \mathcal{B}_g^4 V$$
+$$\vdots$$
+$$\mathcal{B}_g^{k-1}V + \beta^{k-1} m \geq \mathcal{B}_g^k V.$$
+Now by adding all of the above terms we have 
+$$\mathcal{B}V + \sum_{i=1}^{k-1} \beta^i m 
+= \mathcal{B}_gV + \sum_{i=1}^{k-1} \beta^i m\geq \mathcal{B}_g^k V
+\Rightarrow \mathcal{B}V + \frac{\beta - \beta^k}{1-\beta} \geq \mathcal{B}_g^k V.$$
+Now we know that 
+$$\mathcal{B}V + \frac{\beta - \beta^k}{1-\beta} \leq \mathcal{B}V + \frac{\beta }{1-\beta}.$$
+Hence
+$$\mathcal{B}V + \frac{\beta }{1-\beta} \geq \mathcal{B}^k_g V.$$
+For the second part, consider the above equation for $k$, as follows:
+$$\mathcal{B}_g^{k-1}V + \beta^{k-1} m \geq \mathcal{B}_g^k V.$$
+We have 
+$$\mathcal{B}_g^k V = \mathcal{B}_g(\mathcal{B}_g^{k-1} V) \geq 
+\mathcal{B}(\mathcal{B}_g^{k-1} V).$$
+which completes the proof for the second part as follows:
+$$\mathcal{B}_g^{k-1}V + \beta^{k-1} m \geq \mathcal{B}(\mathcal{B}_g^{k-1} V).$$
