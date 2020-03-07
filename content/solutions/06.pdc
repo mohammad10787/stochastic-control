@@ -42,3 +42,56 @@ $$\mathcal{B}_g^k V = \mathcal{B}_g(\mathcal{B}_g^{k-1} V) \geq
 \mathcal{B}(\mathcal{B}_g^{k-1} V).$$
 which completes the proof for the second part as follows:
 $$\mathcal{B}_g^{k-1}V + \beta^{k-1} m \geq \mathcal{B}(\mathcal{B}_g^{k-1} V).$$
+This completes the proof for Prop 6.
+
+For prop. 7, we show the result by induction and using prop. 6.
+For k=0, and using prop. 6, and considering $J=J_0$,$g=g_0$, and 
+$k=m_0$ we have
+$$\mathcal{B}V_0 + \frac{\beta}{1-\beta}m \geq \mathcal{B}_{g0}V_0 = V_1 $$
+$$\Rightarrow
+\mathcal{B}V_0 + \frac{\beta}{1-\beta}m \times \alpha_0 \geq V_1$$
+The last line is because $\alpha_0 = 1$. Now from prop 6 with $g=g_0$, and $k=m_0$, we have
+$$V_1 + \beta^{m_0}m \geq \mathcal{B} V_1
+\Rightarrow V_1 + \alpha_1 m \geq \mathcal{B} V_1$$
+Overall
+$$ \mathcal{B} V_1 - \alpha_1 m \leq V_1 \leq
+\mathcal{B} V_0 + \frac{\beta}{1-\beta} \alpha_0 m$$
+which completes the basis of the induction. 
+Now assume that the statement is true for $k$. We want to show that it is true for $k+1$.
+From the left hand side of the induction hypothesis we have,
+$$\mathcal{B} V_k - \alpha_k m \leq V_k.$$ 
+which means
+$$\mathcal{B} V_k  \leq V_k + \alpha_k m.$$
+Now from Prop 6, with $V = V_k$, $g = g_k$, and $k=m_k$, we have
+$$\mathcal{B} V_k +\frac{\beta}{1-\beta} \alpha_k m \geq \mathcal{B}_{gk} V_k = V_{k+1}$$
+which shows the right hand side of the indeuction for $k+1$.
+Also from prop 6, with $V = V_k$, $g = g_k$, and $k=m_k$, we have
+$$V_{k+1} = \mathcal{B}_{gk} V_k \geq \mathcal{B} (\mathcal{B}_{gk} V_k) - \beta^{m_k} \alpha_k m = \mathcal{B} V_{k+1} - \beta^{m_k} \alpha_k m
+= \mathcal{B} V_{k+1} - \alpha_{k+1} m,$$
+which completes the induction proof.
+
+Now we want to show the second part of prop. 7.
+from the first part of prop 7 we know
+$$V_k \geq \mathcal{B} V_k - \alpha_k m$$
+using this and prop 5 for $k=0$ we have
+$$V_k + \frac{m\alpha_k}{1-\beta} \geq V^*$$
+Now we know that $\alpha_k \leq \beta^k$. Hence
+$$V_k + \frac{m\beta^k}{1-\beta} \geq V_k + \frac{m\alpha_k}{1-\beta} \geq V^*$$
+which shows the right hand side of the second part of prop 7.
+for the left hand side we use the results of the first part of prop 7.
+We know that 
+$$\mathcal{B} V_j \geq V_{j+1} - \frac{\beta}{1-\beta} \alpha_j m$$
+We apply $\mathcal{B}^{k-j-1}$ to both sides and use monotonicity and contraction properties. Hence we have,
+$$\mathcal{B}^{k-j} V_j \geq \mathcal{B}^{k-j-1} V_{j+1} - \frac{\beta^{k-j}}{1-\beta} \alpha_j m$$
+By using the fact that $\alpha_j \leq \beta^j$ 
+and adding the above equation from $j=0$ to $j=k-1$ we have
+$$\mathcal{B}^{k} V_0 \geq V_{k} - \sum_{j=0}^{k-1} \frac{\beta^{k-j}}{1-\beta} \beta^j m
+= V_{k} - \frac{k \beta^{k}}{1-\beta} m$$
+
+Now consider prop 5 for general $k$
+It says that if 
+$$V + m \leq \mathcal{B} V$$
+which is the case by the assumption of prop 7 for $V_0$
+Then 
+$$V^* \geq \mathcal{B}^k V_0 - \frac{\beta^k}{1-\beta}m, \quad k=0,1,\dots$$.
+Now combining this inequality with the one above we can show the left hand side of the last equation in prop 7 and the proof is complete.
